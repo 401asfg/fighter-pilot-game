@@ -716,14 +716,13 @@ MonoBehaviour:
   thrusterDeadzone: 0.19
   maxThrusterMoveSpeed: 20
   minMoveSpeed: 10
-  maxReverseMoveSpeed: 10
   moveAcceleration: 1
   moveDeceleration: 1
   maxRotationSpeed: 2
   rotationAcceleration: 2
   rotationDeceleration: 3
   tiltingBody: {fileID: 2118903541}
-  maxTilt: 20
+  maxTilt: 10
 --- !u!4 &732470963
 Transform:
   m_ObjectHideFlags: 0
@@ -731,7 +730,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 732470960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 15.05, z: 0.089898705}
+  m_LocalPosition: {x: 0, y: 15.071977, z: 0.5393656}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2118903541}
@@ -750,6 +749,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22201467ae8e044a82d0e86093dc6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxRollRotationSpeed: 2
+  rollRotationAcceleration: 2
+  rollRotationDeceleration: 3
+  maxPitchRotationSpeed: 2
+  pitchRotationAcceleration: 2
+  pitchRotationDeceleration: 3
 --- !u!1 &734910046
 GameObject:
   m_ObjectHideFlags: 0

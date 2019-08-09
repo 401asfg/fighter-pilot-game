@@ -12,7 +12,6 @@ public class ShipThrusterControl : MonoBehaviour {
 
     [SerializeField] private float maxThrusterMoveSpeed;
     [SerializeField] private float minMoveSpeed;
-    [SerializeField] private float maxReverseMoveSpeed;
     [SerializeField] private float moveAcceleration;
     [SerializeField] private float moveDeceleration;
 
