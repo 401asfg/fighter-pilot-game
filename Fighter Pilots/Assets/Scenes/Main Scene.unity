@@ -721,8 +721,6 @@ MonoBehaviour:
   maxRotationSpeed: 2
   rotationAcceleration: 2
   rotationDeceleration: 3
-  tiltingBody: {fileID: 2118903541}
-  maxTilt: 10
 --- !u!4 &732470963
 Transform:
   m_ObjectHideFlags: 0
