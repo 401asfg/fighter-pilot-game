@@ -700,7 +700,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &732470962
 MonoBehaviour:
@@ -750,11 +750,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRollRotationSpeed: 2
-  rollRotationAcceleration: 2
-  rollRotationDeceleration: 3
+  rollRotationAcceleration: 3
+  rollRotationDeceleration: 10
   maxPitchRotationSpeed: 2
-  pitchRotationAcceleration: 2
-  pitchRotationDeceleration: 3
+  pitchRotationAcceleration: 3
+  pitchRotationDeceleration: 10
 --- !u!1 &734910046
 GameObject:
   m_ObjectHideFlags: 0

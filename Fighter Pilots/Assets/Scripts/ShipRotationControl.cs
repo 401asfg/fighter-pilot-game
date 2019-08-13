@@ -25,7 +25,17 @@ public class ShipRotationControl : MonoBehaviour {
 
     void FixedUpdate() {
         //Input
-        float rollInput = Input.GetAxis("Roll");
+        float rollInput = -Input.GetAxis("Roll");
         float pitchInput = -Input.GetAxis("Pitch");
+
+        //Roll
+        float targetRollRotationSpeed = rollInput * maxRollRotationSpeed;
+        rollRotationSpeed = Mathf.Lerp(rollRotationSpeed, targetRollRotationSpeed, Time.fixedDeltaTime * (Mathf.Abs(targetRollRotationSpeed) >= Mathf.Abs(rollRotationSpeed) ? rollRotationAcceleration : rollRotationDeceleration));
+        transform.Rotate(0f, 0f, rollRotationSpeed);
+
+        //Pitch
+        float targetPitchRotationSpeed = pitchInput * maxPitchRotationSpeed;
+        pitchRotationSpeed = Mathf.Lerp(pitchRotationSpeed, targetPitchRotationSpeed, Time.fixedDeltaTime * (Mathf.Abs(targetPitchRotationSpeed) >= Mathf.Abs(pitchRotationSpeed) ? pitchRotationAcceleration : pitchRotationDeceleration));
+        transform.Rotate(pitchRotationSpeed, 0f, 0f);
     }
 }

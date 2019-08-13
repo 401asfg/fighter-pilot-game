@@ -35,7 +35,7 @@ public class ViewControl : MonoBehaviour {
             hRot = Mathf.Lerp(hRot, targetHRot + (lookingBack ? 1f : 0f) * 180f, Time.fixedDeltaTime * (Mathf.Abs(targetHRot) >= Mathf.Abs(hRot) ? lookPivotAcceleration : lookNeutralAcceleration));
             vRot = Mathf.Lerp(vRot, targetVRot, Time.fixedDeltaTime * (Mathf.Abs(targetVRot) >= Mathf.Abs(vRot) ? lookPivotAcceleration : lookNeutralAcceleration));
 
-            transform.eulerAngles += new Vector3(vRot, hRot, 0f);
+            transform.localEulerAngles += new Vector3(vRot, hRot, 0f);
         }
 
         //Third Person Rear View

@@ -19,9 +19,6 @@ public class ShipThrusterControl : MonoBehaviour {
     [SerializeField] private float rotationAcceleration;
     [SerializeField] private float rotationDeceleration;
 
-    [SerializeField] private Transform tiltingBody;
-    [SerializeField] private float maxTilt;
-
     void Start() {
         rb = GetComponent<Rigidbody>();
 
@@ -34,7 +31,7 @@ public class ShipThrusterControl : MonoBehaviour {
         float rightThruster = Input.GetAxis("Right Thruster");
         float leftThruster = Input.GetAxis("Left Thruster");
 
-        float thrusterMag = Mathf.Max(rightThruster, leftThruster) > thrusterDeadzone ? Mathf.Max(rightThruster, leftThruster) : 0f;
+        float thrusterMag = Mathf.Max(rightThruster, leftThruster) > thrusterDeadzone ? (rightThruster + leftThruster) / 2f : 0f;
         float thrusterDir = Mathf.Abs(rightThruster - leftThruster) > thrusterDeadzone ? rightThruster - leftThruster : 0f;
 
         //Forward Movement
@@ -46,9 +43,5 @@ public class ShipThrusterControl : MonoBehaviour {
         float targetRotationSpeed = thrusterDir * maxRotationSpeed;
         rotationSpeed = Mathf.Lerp(rotationSpeed, targetRotationSpeed, Time.fixedDeltaTime * (Mathf.Abs(targetRotationSpeed) >= Mathf.Abs(rotationSpeed) ? rotationAcceleration : rotationDeceleration));
         transform.Rotate(new Vector3(0f, rotationSpeed, 0f));
-
-        //Turning Tilt
-        Vector3 tiltingBodyAngles = tiltingBody.eulerAngles;
-        tiltingBody.eulerAngles = new Vector3(tiltingBodyAngles.x, tiltingBodyAngles.y, -(rotationSpeed / maxRotationSpeed) * maxTilt);
     }
 }
