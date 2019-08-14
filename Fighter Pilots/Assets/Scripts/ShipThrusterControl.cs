@@ -8,6 +8,8 @@ public class ShipThrusterControl : MonoBehaviour {
     [HideInInspector] private float moveSpeed;
     [HideInInspector] private float rotationSpeed;
 
+    [SerializeField] private Animator tiltAnim;
+
     [SerializeField] private float thrusterDeadzone;
 
     [SerializeField] private float maxThrusterMoveSpeed;
@@ -43,5 +45,8 @@ public class ShipThrusterControl : MonoBehaviour {
         float targetRotationSpeed = thrusterDir * maxRotationSpeed;
         rotationSpeed = Mathf.Lerp(rotationSpeed, targetRotationSpeed, Time.fixedDeltaTime * (Mathf.Abs(targetRotationSpeed) >= Mathf.Abs(rotationSpeed) ? rotationAcceleration : rotationDeceleration));
         transform.Rotate(new Vector3(0f, rotationSpeed, 0f));
+
+        //Turning Tilt Animation
+        tiltAnim.SetFloat("Thruster Tilt", rotationSpeed / maxRotationSpeed);
     }
 }

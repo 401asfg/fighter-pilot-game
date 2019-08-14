@@ -425,6 +425,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114796953589649726, guid: b92b72b991d68744a9a3fd5f9a54bd1e,
+        type: 2}
+      propertyPath: tiltAnim
+      value: 
+      objectReference: {fileID: 2118903541}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b92b72b991d68744a9a3fd5f9a54bd1e, type: 2}
   m_IsPrefabParent: 0
@@ -542,6 +547,28 @@ Transform:
   m_Father: {fileID: 866480860}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &570835842 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1385762588160432, guid: b92b72b991d68744a9a3fd5f9a54bd1e,
+    type: 2}
+  m_PrefabInternal: {fileID: 559107077}
+--- !u!95 &570835843
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 570835842}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aaa4e5186d184274cb36738d4c49a529, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &734910046
 GameObject:
   m_ObjectHideFlags: 0
