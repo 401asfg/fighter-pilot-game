@@ -9,6 +9,7 @@ public class ShipThrusterControl : MonoBehaviour {
     [HideInInspector] private float rotationSpeed;
 
     [SerializeField] private Animator tiltAnim;
+    [SerializeField] private Animator viewDelayAnim;
 
     [SerializeField] private float thrusterDeadzone;
 
@@ -33,7 +34,7 @@ public class ShipThrusterControl : MonoBehaviour {
         float rightThruster = Input.GetAxis("Right Thruster");
         float leftThruster = Input.GetAxis("Left Thruster");
 
-        float thrusterMag = Mathf.Max(rightThruster, leftThruster) > thrusterDeadzone ? (rightThruster + leftThruster) / 2f : 0f;
+        float thrusterMag = Mathf.Max(rightThruster, leftThruster) > thrusterDeadzone ? Mathf.Max(rightThruster, leftThruster) : 0f;
         float thrusterDir = Mathf.Abs(rightThruster - leftThruster) > thrusterDeadzone ? rightThruster - leftThruster : 0f;
 
         //Forward Movement
@@ -46,7 +47,8 @@ public class ShipThrusterControl : MonoBehaviour {
         rotationSpeed = Mathf.Lerp(rotationSpeed, targetRotationSpeed, Time.fixedDeltaTime * (Mathf.Abs(targetRotationSpeed) >= Mathf.Abs(rotationSpeed) ? rotationAcceleration : rotationDeceleration));
         transform.Rotate(new Vector3(0f, rotationSpeed, 0f));
 
-        //Turning Tilt Animation
-        tiltAnim.SetFloat("Tilt Direction", rotationSpeed / maxRotationSpeed);
+        //Turning Animations
+        tiltAnim.SetFloat("Thruster Direction", rotationSpeed / maxRotationSpeed);
+        viewDelayAnim.SetFloat("Thruster Direction", rotationSpeed / maxRotationSpeed);
     }
 }
