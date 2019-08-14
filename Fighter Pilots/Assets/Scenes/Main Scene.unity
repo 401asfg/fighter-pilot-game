@@ -430,6 +430,39 @@ Prefab:
       propertyPath: tiltAnim
       value: 
       objectReference: {fileID: 2118903541}
+    - target: {fileID: 4732713596871698, guid: b92b72b991d68744a9a3fd5f9a54bd1e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732713596871698, guid: b92b72b991d68744a9a3fd5f9a54bd1e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732713596871698, guid: b92b72b991d68744a9a3fd5f9a54bd1e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.64000034
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732713596871698, guid: b92b72b991d68744a9a3fd5f9a54bd1e, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732713596871698, guid: b92b72b991d68744a9a3fd5f9a54bd1e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732713596871698, guid: b92b72b991d68744a9a3fd5f9a54bd1e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114702066157632290, guid: b92b72b991d68744a9a3fd5f9a54bd1e,
+        type: 2}
+      propertyPath: viewDelayAnim
+      value: 
+      objectReference: {fileID: 570835843}
+    - target: {fileID: 4732713596871698, guid: b92b72b991d68744a9a3fd5f9a54bd1e, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b92b72b991d68744a9a3fd5f9a54bd1e, type: 2}
   m_IsPrefabParent: 0

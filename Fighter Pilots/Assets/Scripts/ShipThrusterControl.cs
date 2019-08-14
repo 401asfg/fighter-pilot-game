@@ -47,6 +47,6 @@ public class ShipThrusterControl : MonoBehaviour {
         transform.Rotate(new Vector3(0f, rotationSpeed, 0f));
 
         //Turning Tilt Animation
-        tiltAnim.SetFloat("Thruster Tilt", rotationSpeed / maxRotationSpeed);
+        tiltAnim.SetFloat("Tilt Direction", rotationSpeed / maxRotationSpeed);
     }
 }

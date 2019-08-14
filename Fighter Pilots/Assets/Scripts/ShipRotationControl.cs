@@ -8,6 +8,8 @@ public class ShipRotationControl : MonoBehaviour {
     [HideInInspector] private float rollRotationSpeed;
     [HideInInspector] private float pitchRotationSpeed;
 
+    [SerializeField] private Animator viewDelayAnim;
+
     [SerializeField] private float maxRollRotationSpeed;
     [SerializeField] private float rollRotationAcceleration;
     [SerializeField] private float rollRotationDeceleration;
@@ -37,5 +39,9 @@ public class ShipRotationControl : MonoBehaviour {
         float targetPitchRotationSpeed = pitchInput * maxPitchRotationSpeed;
         pitchRotationSpeed = Mathf.Lerp(pitchRotationSpeed, targetPitchRotationSpeed, Time.fixedDeltaTime * (Mathf.Abs(targetPitchRotationSpeed) >= Mathf.Abs(pitchRotationSpeed) ? pitchRotationAcceleration : pitchRotationDeceleration));
         transform.Rotate(pitchRotationSpeed, 0f, 0f);
+
+        //Rotation View Delay Animations
+        viewDelayAnim.SetFloat("Roll View Delay", rollRotationSpeed / maxRollRotationSpeed);
+        viewDelayAnim.SetFloat("Pitch View Delay", pitchRotationSpeed / maxPitchRotationSpeed);
     }
 }
