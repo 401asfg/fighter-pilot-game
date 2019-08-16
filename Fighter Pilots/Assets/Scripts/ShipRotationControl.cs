@@ -41,7 +41,7 @@ public class ShipRotationControl : MonoBehaviour {
         transform.Rotate(pitchRotationSpeed, 0f, 0f);
 
         //Animations
-        anim.SetFloat("Roll Direction", -rollRotationSpeed / maxRollRotationSpeed);
-        anim.SetFloat("Pitch Direction", -pitchRotationSpeed / maxPitchRotationSpeed);
+        anim.SetFloat(-rollRotationSpeed >= 0f ? "Positive Roll" : "Negative Roll", Mathf.Abs(rollRotationSpeed / maxRollRotationSpeed));
+        anim.SetFloat(-pitchRotationSpeed >= 0f ? "Positive Pitch" : "Negative Pitch", Mathf.Abs(pitchRotationSpeed / maxPitchRotationSpeed));
     }
 }
