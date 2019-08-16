@@ -403,9 +403,9 @@ MonoBehaviour:
   minMoveSpeed: 10
   moveAcceleration: 1
   moveDeceleration: 1
-  maxRotationSpeed: 2
-  rotationAcceleration: 2
-  rotationDeceleration: 3
+  maxTurnSpeed: 1
+  turnAcceleration: 3
+  turnDeceleration: 5
 --- !u!114 &114427223838449636
 MonoBehaviour:
   m_ObjectHideFlags: 1

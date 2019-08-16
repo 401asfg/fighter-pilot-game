@@ -7,7 +7,7 @@ public class ShipThrusterControl : MonoBehaviour {
     [HideInInspector] private Animator anim;
 
     [HideInInspector] private float moveSpeed;
-    [HideInInspector] private float rotationSpeed;
+    [HideInInspector] private float turnSpeed;
 
     [SerializeField] private float thrusterDeadzone;
 
@@ -16,16 +16,16 @@ public class ShipThrusterControl : MonoBehaviour {
     [SerializeField] private float moveAcceleration;
     [SerializeField] private float moveDeceleration;
 
-    [SerializeField] private float maxRotationSpeed;
-    [SerializeField] private float rotationAcceleration;
-    [SerializeField] private float rotationDeceleration;
+    [SerializeField] private float maxTurnSpeed;
+    [SerializeField] private float turnAcceleration;
+    [SerializeField] private float turnDeceleration;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
 
         moveSpeed = 0f;
-        rotationSpeed = 0f;
+        turnSpeed = 0f;
     }
 
     void FixedUpdate() {
@@ -42,11 +42,11 @@ public class ShipThrusterControl : MonoBehaviour {
         rb.velocity = transform.forward * moveSpeed;
 
         //Turning
-        float targetRotationSpeed = thrusterDir * maxRotationSpeed;
-        rotationSpeed = Mathf.Lerp(rotationSpeed, targetRotationSpeed, Time.fixedDeltaTime * (Mathf.Abs(targetRotationSpeed) >= Mathf.Abs(rotationSpeed) ? rotationAcceleration : rotationDeceleration));
-        transform.Rotate(new Vector3(0f, rotationSpeed, 0f));
+        float targetTurnSpeed = thrusterDir * maxTurnSpeed;
+        turnSpeed = Mathf.Lerp(turnSpeed, targetTurnSpeed, Time.fixedDeltaTime * (Mathf.Abs(targetTurnSpeed) >= Mathf.Abs(turnSpeed) ? turnAcceleration : turnDeceleration));
+        transform.Rotate(new Vector3(0f, turnSpeed, 0f));
 
         //Animations
-        anim.SetFloat("Thruster Direction", -rotationSpeed / maxRotationSpeed);
+        anim.SetFloat("Thruster Direction", -turnSpeed / maxTurnSpeed);
     }
 }
