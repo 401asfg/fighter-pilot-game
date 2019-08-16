@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class ShipThrusterControl : MonoBehaviour {
     [HideInInspector] private Rigidbody rb;
+    [HideInInspector] private Animator anim;
 
     [HideInInspector] private float moveSpeed;
     [HideInInspector] private float rotationSpeed;
-
-    [SerializeField] private Animator tiltAnim;
-    [SerializeField] private Animator viewDelayAnim;
 
     [SerializeField] private float thrusterDeadzone;
 
@@ -24,6 +22,7 @@ public class ShipThrusterControl : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
 
         moveSpeed = 0f;
         rotationSpeed = 0f;
@@ -47,8 +46,7 @@ public class ShipThrusterControl : MonoBehaviour {
         rotationSpeed = Mathf.Lerp(rotationSpeed, targetRotationSpeed, Time.fixedDeltaTime * (Mathf.Abs(targetRotationSpeed) >= Mathf.Abs(rotationSpeed) ? rotationAcceleration : rotationDeceleration));
         transform.Rotate(new Vector3(0f, rotationSpeed, 0f));
 
-        //Turning Animations
-        tiltAnim.SetFloat("Thruster Direction", rotationSpeed / maxRotationSpeed);
-        viewDelayAnim.SetFloat("Thruster Direction", rotationSpeed / maxRotationSpeed);
+        //Animations
+        anim.SetFloat("Thruster Direction", -rotationSpeed / maxRotationSpeed);
     }
 }

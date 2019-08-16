@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class ShipRotationControl : MonoBehaviour {
     [HideInInspector] private Rigidbody rb;
+    [HideInInspector] private Animator anim;
 
     [HideInInspector] private float rollRotationSpeed;
     [HideInInspector] private float pitchRotationSpeed;
-
-    [SerializeField] private Animator viewDelayAnim;
 
     [SerializeField] private float maxRollRotationSpeed;
     [SerializeField] private float rollRotationAcceleration;
@@ -20,6 +19,7 @@ public class ShipRotationControl : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
 
         rollRotationSpeed = 0f;
         pitchRotationSpeed = 0f;
@@ -40,8 +40,8 @@ public class ShipRotationControl : MonoBehaviour {
         pitchRotationSpeed = Mathf.Lerp(pitchRotationSpeed, targetPitchRotationSpeed, Time.fixedDeltaTime * (Mathf.Abs(targetPitchRotationSpeed) >= Mathf.Abs(pitchRotationSpeed) ? pitchRotationAcceleration : pitchRotationDeceleration));
         transform.Rotate(pitchRotationSpeed, 0f, 0f);
 
-        //Rotation View Delay Animations
-        viewDelayAnim.SetFloat("Roll View Delay", rollRotationSpeed / maxRollRotationSpeed);
-        viewDelayAnim.SetFloat("Pitch View Delay", pitchRotationSpeed / maxPitchRotationSpeed);
+        //Animations
+        anim.SetFloat("Roll Direction", -rollRotationSpeed / maxRollRotationSpeed);
+        anim.SetFloat("Pitch Direction", -pitchRotationSpeed / maxPitchRotationSpeed);
     }
 }
