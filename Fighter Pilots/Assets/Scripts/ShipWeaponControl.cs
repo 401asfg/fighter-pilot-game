@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipWeapon : MonoBehaviour {
+public class ShipWeaponControl : MonoBehaviour {
     [HideInInspector] private float rightDelay;
     [HideInInspector] private float leftDelay;
 

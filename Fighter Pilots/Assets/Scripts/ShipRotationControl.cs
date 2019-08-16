@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipRotationControl : MonoBehaviour {
-    [HideInInspector] private Rigidbody rb;
     [HideInInspector] private Animator anim;
 
     [HideInInspector] private float rollRotationSpeed;
@@ -18,7 +17,6 @@ public class ShipRotationControl : MonoBehaviour {
     [SerializeField] private float pitchRotationDeceleration;
 
     void Start() {
-        rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
 
         rollRotationSpeed = 0f;
