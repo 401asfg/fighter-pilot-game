@@ -33,7 +33,7 @@ public class ShipThrusterControl : MonoBehaviour {
         float rightThruster = Input.GetAxis("Right Thruster");
         float leftThruster = Input.GetAxis("Left Thruster");
 
-        float thrusterMag = Mathf.Max(rightThruster, leftThruster) > thrusterDeadzone ? Mathf.Max(rightThruster, leftThruster) : 0f;
+        float thrusterMag = Mathf.Max(rightThruster, leftThruster) > thrusterDeadzone ? (rightThruster + leftThruster) / 2f : 0f;
         float thrusterDir = Mathf.Abs(rightThruster - leftThruster) > thrusterDeadzone ? rightThruster - leftThruster : 0f;
 
         //Forward Movement
