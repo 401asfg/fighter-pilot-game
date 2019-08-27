@@ -6,6 +6,8 @@ public class ViewControl : MonoBehaviour {
     [HideInInspector] private float hRot;
     [HideInInspector] private float vRot;
 
+    [SerializeField] private Player player;
+
     [SerializeField] private Transform firstPersonHolder;
     [SerializeField] private Transform thirdPersonHolder;
     [SerializeField] private Transform thirdPersonRearViewHolder;
@@ -21,16 +23,16 @@ public class ViewControl : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        bool lookingBack = Input.GetButton("Look Back");
-        bool togglePerspective = Input.GetButtonDown("Toggle Perspective");
+        bool lookingBack = Input.GetButton("Look Back " + player.index);
+        bool togglePerspective = Input.GetButtonDown("Toggle Perspective " + player.index);
 
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
 
         //First Person View Pivot
         if (transform.parent == firstPersonHolder) {
-            float targetHRot = Input.GetAxis("Horizontal Look") * maxHorizontalRotation;
-            float targetVRot = Input.GetAxis("Vertical Look") * maxVerticalRotation;
+            float targetHRot = Input.GetAxis("Horizontal Look " + player.index) * maxHorizontalRotation;
+            float targetVRot = Input.GetAxis("Vertical Look " + player.index) * maxVerticalRotation;
 
             hRot = Mathf.Lerp(hRot, targetHRot + (lookingBack ? 1f : 0f) * 180f, Time.fixedDeltaTime * (Mathf.Abs(targetHRot) >= Mathf.Abs(hRot) ? lookPivotAcceleration : lookNeutralAcceleration));
             vRot = Mathf.Lerp(vRot, targetVRot, Time.fixedDeltaTime * (Mathf.Abs(targetVRot) >= Mathf.Abs(vRot) ? lookPivotAcceleration : lookNeutralAcceleration));

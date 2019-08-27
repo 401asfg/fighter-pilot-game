@@ -8,6 +8,8 @@ public class ShipRotationControl : MonoBehaviour {
     [HideInInspector] private float rollRotationSpeed;
     [HideInInspector] private float pitchRotationSpeed;
 
+    [SerializeField] private Player player;
+
     [SerializeField] private float maxRollRotationSpeed;
     [SerializeField] private float rollRotationAcceleration;
     [SerializeField] private float rollRotationDeceleration;
@@ -25,8 +27,8 @@ public class ShipRotationControl : MonoBehaviour {
 
     void FixedUpdate() {
         //Input
-        float rollInput = -Input.GetAxis("Roll");
-        float pitchInput = -Input.GetAxis("Pitch");
+        float rollInput = -Input.GetAxis("Roll " + player.index);
+        float pitchInput = -Input.GetAxis("Pitch " + player.index);
 
         //Roll
         float targetRollRotationSpeed = rollInput * maxRollRotationSpeed;

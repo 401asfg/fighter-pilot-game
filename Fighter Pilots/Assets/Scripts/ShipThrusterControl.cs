@@ -9,6 +9,8 @@ public class ShipThrusterControl : MonoBehaviour {
     [HideInInspector] private float moveSpeed;
     [HideInInspector] private float turnSpeed;
 
+    [SerializeField] private Player player;
+
     [SerializeField] private float thrusterDeadzone;
 
     [SerializeField] private float maxThrusterMoveSpeed;
@@ -30,8 +32,8 @@ public class ShipThrusterControl : MonoBehaviour {
 
     void FixedUpdate() {
         //Thruster Input
-        float rightThruster = Input.GetAxis("Right Thruster");
-        float leftThruster = Input.GetAxis("Left Thruster");
+        float rightThruster = Input.GetAxis("Right Thruster " + player.index);
+        float leftThruster = Input.GetAxis("Left Thruster " + player.index);
 
         float thrusterMag = Mathf.Max(rightThruster, leftThruster) > thrusterDeadzone ? (rightThruster + leftThruster) / 2f : 0f;
         float thrusterDir = Mathf.Abs(rightThruster - leftThruster) > thrusterDeadzone ? rightThruster - leftThruster : 0f;
