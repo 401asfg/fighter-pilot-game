@@ -1141,6 +1141,61 @@ MonoBehaviour:
   - {fileID: 171703159}
   - {fileID: 1894967826}
   - {fileID: 992414660}
+  splitScreenViews:
+  - playerViews:
+    - serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 1
+  - playerViews:
+    - serializedVersion: 2
+      x: 0
+      y: 0.5
+      width: 1
+      height: 0.5
+    - serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 0.5
+  - playerViews:
+    - serializedVersion: 2
+      x: 0
+      y: 0.5
+      width: 0.5
+      height: 0.5
+    - serializedVersion: 2
+      x: 0.5
+      y: 0.5
+      width: 0.5
+      height: 0.5
+    - serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 0.5
+  - playerViews:
+    - serializedVersion: 2
+      x: 0
+      y: 0.5
+      width: 0.5
+      height: 0.5
+    - serializedVersion: 2
+      x: 0.5
+      y: 0.5
+      width: 0.5
+      height: 0.5
+    - serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0.5
+      height: 0.5
+    - serializedVersion: 2
+      x: 0.5
+      y: 0
+      width: 0.5
+      height: 0.5
 --- !u!1 &1200738913
 GameObject:
   m_ObjectHideFlags: 0
