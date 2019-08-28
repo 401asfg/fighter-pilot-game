@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour {
     [HideInInspector] public int index;
     [SerializeField] private int health;
-    [SerializeField] private GameManager gameManager;
 
     public int Health {
         get {
@@ -23,11 +22,6 @@ public class Player : MonoBehaviour {
     }
 
     public void Die() {
-        StartCoroutine(gameManager.RespawnPlayer(index, gameManager.spawnPoints[index]));
         Destroy(transform.root.gameObject);
-    }
-
-    void OnCollisionEnter(Collision c) {
-        Die();
     }
 }
