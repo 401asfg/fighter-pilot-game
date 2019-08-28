@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    [SerializeField] private PlayerSpawnPoint[] spawnPoints;
+    public PlayerSpawnPoint[] spawnPoints;
     [SerializeField] private SplitScreenView[] splitScreenViews;
+    [SerializeField] private float respawnDelay;
 
     private GameObject[] players;
 
     void Start() {
         players = new GameObject[2];
 
-        players[0] = spawnPoints[0].Spawn(0);
-        players[1] = spawnPoints[1].Spawn(1);
+        for(int i = 0; i < players.Length; i++) {
+            players[i] = spawnPoints[i].Spawn(i);
+        }
 
         UpdateSplitscreen();
     }
@@ -21,6 +23,11 @@ public class GameManager : MonoBehaviour {
         for(int i = 0; i < players.Length; i++) {
             players[i].GetComponentInChildren<Camera>().rect = splitScreenViews[players.Length - 1].playerViews[i];
         }
+    }
+
+    public IEnumerator RespawnPlayer(int index, PlayerSpawnPoint spawnPoint) {
+        yield return new WaitForSeconds(respawnDelay);
+        players[index] = spawnPoint.Spawn(index);
     }
 }
 
