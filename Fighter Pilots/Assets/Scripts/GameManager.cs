@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
     private GameObject[] players;
 
     void Start() {
-        players = new GameObject[2];
+        players = new GameObject[1];
 
         for(int i = 0; i < players.Length; i++) {
             players[i] = spawnPoints[i].Spawn(i);
