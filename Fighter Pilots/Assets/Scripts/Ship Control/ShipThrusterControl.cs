@@ -50,6 +50,9 @@ public class ShipThrusterControl : MonoBehaviour {
 
         //Animations
         anim.SetFloat("Thruster Magnitude", (moveSpeed - minMoveSpeed) / maxThrusterMoveSpeed);
+
+        print(anim.GetFloat("Thruster Magnitude"));
+
         anim.SetFloat(-turnSpeed >= 0f ? "Positive Thruster" : "Negative Thruster", Mathf.Abs(turnSpeed / maxTurnSpeed));
     }
 }
