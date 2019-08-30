@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ViewControl : MonoBehaviour {
+    //Rotation Values
     [HideInInspector] private float hRot;
     [HideInInspector] private float vRot;
 
     [SerializeField] private Player player;
 
+    //Perspective Transform References
     [SerializeField] private Transform firstPersonHolder;
     [SerializeField] private Transform thirdPersonHolder;
     [SerializeField] private Transform thirdPersonRearViewHolder;
 
+    //Rotation Parameters
     [SerializeField] private float maxHorizontalRotation;
     [SerializeField] private float maxVerticalRotation;
     [SerializeField] private float lookPivotAcceleration;

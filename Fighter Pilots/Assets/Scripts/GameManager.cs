@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    public PlayerSpawnPoint[] spawnPoints;
+    [SerializeField] public PlayerSpawnPoint[] spawnPoints;
     [SerializeField] private SplitScreenView[] splitScreenViews;
 
     private GameObject[] players;

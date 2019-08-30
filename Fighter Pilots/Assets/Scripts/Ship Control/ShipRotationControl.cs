@@ -5,15 +5,22 @@ using UnityEngine;
 public class ShipRotationControl : MonoBehaviour {
     [HideInInspector] private Animator anim;
 
+    //Motion Speeds
     [HideInInspector] private float rollRotationSpeed;
     [HideInInspector] private float pitchRotationSpeed;
 
+    //Animation Values
+    [HideInInspector] public float rollAnim;
+    [HideInInspector] public float pitchAnim;
+
     [SerializeField] private Player player;
 
+    //Roll Parameters
     [SerializeField] private float maxRollRotationSpeed;
     [SerializeField] private float rollRotationAcceleration;
     [SerializeField] private float rollRotationDeceleration;
 
+    //Pitch Parameters
     [SerializeField] private float maxPitchRotationSpeed;
     [SerializeField] private float pitchRotationAcceleration;
     [SerializeField] private float pitchRotationDeceleration;
@@ -21,8 +28,13 @@ public class ShipRotationControl : MonoBehaviour {
     void Start() {
         anim = GetComponent<Animator>();
 
+        //Motion Speeds
         rollRotationSpeed = 0f;
         pitchRotationSpeed = 0f;
+
+        //Animation Values
+        rollAnim = 0f;
+        pitchAnim = 0f;
     }
 
     void FixedUpdate() {
@@ -41,7 +53,9 @@ public class ShipRotationControl : MonoBehaviour {
         transform.Rotate(pitchRotationSpeed, 0f, 0f);
 
         //Animations
-        anim.SetFloat(-rollRotationSpeed >= 0f ? "Positive Roll" : "Negative Roll", Mathf.Abs(rollRotationSpeed / maxRollRotationSpeed));
-        anim.SetFloat(-pitchRotationSpeed >= 0f ? "Positive Pitch" : "Negative Pitch", Mathf.Abs(pitchRotationSpeed / maxPitchRotationSpeed));
+        rollAnim = rollRotationSpeed / maxRollRotationSpeed;
+        pitchAnim = pitchRotationSpeed / maxPitchRotationSpeed;
+        anim.SetFloat(-rollRotationSpeed >= 0f ? "Positive Roll" : "Negative Roll", Mathf.Abs(rollAnim));
+        anim.SetFloat(-pitchRotationSpeed >= 0f ? "Positive Pitch" : "Negative Pitch", Mathf.Abs(pitchAnim));
     }
 }
