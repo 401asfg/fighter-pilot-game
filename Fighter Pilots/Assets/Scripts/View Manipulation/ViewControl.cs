@@ -21,6 +21,8 @@ public class ViewControl : MonoBehaviour {
     [SerializeField] private float lookNeutralAcceleration;
 
     void Start() {
+        Cursor.lockState = CursorLockMode.Locked;
+
         hRot = 0f;
         vRot = 0f;
     }
