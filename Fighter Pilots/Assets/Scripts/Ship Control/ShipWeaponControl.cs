@@ -9,6 +9,9 @@ public class ShipWeaponControl : MonoBehaviour {
     [SerializeField] private Weapon rightWeapon;
     [SerializeField] private Weapon leftWeapon;
 
+    [SerializeField] private LayerMask aimRayLayers;
+    [SerializeField] private float aimRayDistance;
+
     void Update() {
         //Input
         bool fireRight = Input.GetButton("Fire Right Weapon " + player.index);
@@ -24,7 +27,17 @@ public class ShipWeaponControl : MonoBehaviour {
         }
 
         //Aim
-        bool canUseRight = rightWeapon.Aim(mainCamera.forward);
-        bool canUseLeft = leftWeapon.Aim(mainCamera.forward);
+        Ray ray = new Ray(mainCamera.position, mainCamera.forward);
+        RaycastHit hit;
+
+        if(Physics.Raycast(ray, out hit, aimRayDistance, aimRayLayers)) {
+            rightWeapon.Aim(hit.point - rightWeapon.transform.position);
+            leftWeapon.Aim(hit.point - leftWeapon.transform.position);
+        }
+
+        else {
+            rightWeapon.Aim(mainCamera.forward);
+            leftWeapon.Aim(mainCamera.forward);
+        }
     }
 }

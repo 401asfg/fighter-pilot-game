@@ -6,6 +6,10 @@ public class Projectile : MonoBehaviour {
     [SerializeField] private int damage;
     [SerializeField] private float speed;
 
+    void Start() {
+        gameObject.layer = LayerMask.NameToLayer("Projectile");
+    }
+
     void FixedUpdate() {
         transform.position += transform.forward * speed;
     }

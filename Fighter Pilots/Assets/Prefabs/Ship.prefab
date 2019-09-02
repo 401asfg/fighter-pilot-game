@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4286207304070782}
   - component: {fileID: 114350232471550348}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Third Person Camera Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4747670622753304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Third Person View Components
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 124948549367322812}
   - component: {fileID: 81186116964980316}
   - component: {fileID: 114698144648467026}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4577280317129874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: First Person Camera Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4766203613802720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 4665080387323478}
   - component: {fileID: 33596303054432716}
   - component: {fileID: 114781389734384870}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rigth Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 4035444123674368}
   - component: {fileID: 33559609290682272}
   - component: {fileID: 114351899589933414}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 114654536947191122}
   - component: {fileID: 114782650361250722}
   - component: {fileID: 95602179620149816}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4585671783683374}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Third Person Rear View Camera Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4591035187480050}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Third Person Camera Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1831864132185808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.08, z: 2.98}
+  m_LocalPosition: {x: 0, y: 2.08, z: 5.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4747670622753304}
@@ -637,6 +637,10 @@ MonoBehaviour:
   mainCamera: {fileID: 4609928781506760}
   rightWeapon: {fileID: 114781389734384870}
   leftWeapon: {fileID: 114351899589933414}
+  aimRayLayers:
+    serializedVersion: 2
+    m_Bits: 4294966527
+  aimRayDistance: 100
 --- !u!124 &124948549367322812
 Behaviour:
   m_ObjectHideFlags: 1
