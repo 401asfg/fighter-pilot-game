@@ -9,6 +9,7 @@ public class ShipWeaponControl : MonoBehaviour {
     [SerializeField] private Weapon rightWeapon;
     [SerializeField] private Weapon leftWeapon;
 
+    [SerializeField] private RectTransform crosshair;
     [SerializeField] private LayerMask aimRayLayers;
     [SerializeField] private float aimRayDistance;
 
@@ -18,11 +19,11 @@ public class ShipWeaponControl : MonoBehaviour {
         bool fireLeft = Input.GetButton("Fire Left Weapon " + player.index);
 
         //Shoot
-        if (fireRight) {
+        if(fireRight) {
             rightWeapon.Shoot();
         }
 
-        if (fireLeft) {
+        if(fireLeft) {
             leftWeapon.Shoot();
         }
 
@@ -30,14 +31,19 @@ public class ShipWeaponControl : MonoBehaviour {
         Ray ray = new Ray(mainCamera.position, mainCamera.forward);
         RaycastHit hit;
 
+        Vector3 target;
+        Camera cam = mainCamera.GetComponent<Camera>();
+
         if(Physics.Raycast(ray, out hit, aimRayDistance, aimRayLayers)) {
-            rightWeapon.Aim(hit.point - rightWeapon.transform.position);
-            leftWeapon.Aim(hit.point - leftWeapon.transform.position);
+            target = hit.point;
         }
 
         else {
-            rightWeapon.Aim(mainCamera.forward);
-            leftWeapon.Aim(mainCamera.forward);
+            target = (aimRayDistance * mainCamera.forward + mainCamera.position);
         }
+
+        rightWeapon.Aim(target - rightWeapon.transform.position);
+        leftWeapon.Aim(target - leftWeapon.transform.position);
+        crosshair.position = cam.WorldToScreenPoint(target);
     }
 }
