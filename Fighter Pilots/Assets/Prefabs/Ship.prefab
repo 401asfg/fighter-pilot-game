@@ -306,7 +306,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1831864132185808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.08, z: 5.14}
+  m_LocalPosition: {x: 0, y: 2.08, z: 30.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4747670622753304}
@@ -569,7 +569,7 @@ MonoBehaviour:
   thrusterMagReactionDistance: 2.5
   thrusterDirReactionAngle: 2.5
   rollReactionAngle: 5
-  pitchReactionAngle: 4
+  pitchReactionAngle: 1.5
 --- !u!114 &114351899589933414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -713,14 +713,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 114409344528061878}
-  mainCamera: {fileID: 4609928781506760}
+  cam: {fileID: 20269071150663420}
+  aimingBody: {fileID: 4609928781506760}
+  crosshair: {fileID: 224504863676038582}
   rightWeapon: {fileID: 114781389734384870}
   leftWeapon: {fileID: 114351899589933414}
-  crosshair: {fileID: 224504863676038582}
   aimRayLayers:
     serializedVersion: 2
     m_Bits: 4294966527
   aimRayDistance: 100
+  crosshairAcceleration: 12.5
 --- !u!114 &114964050847025332
 MonoBehaviour:
   m_ObjectHideFlags: 1
