@@ -6,7 +6,9 @@ public class ShipWeaponControl : MonoBehaviour {
     //Ship Component References
     [SerializeField] private Player player;
     [SerializeField] private Camera cam;
-    [SerializeField] private Transform aimingBody;
+    [SerializeField] private ViewControl viewControl;
+    [SerializeField] private Transform firstPersonAimingBody;
+    [SerializeField] private Transform thirdPersonAimingBody;
     [SerializeField] private RectTransform crosshair;
 
     //Weapon References
@@ -32,6 +34,17 @@ public class ShipWeaponControl : MonoBehaviour {
             leftWeapon.Shoot();
         }
 
+        //Assign Aiming Body
+        Transform aimingBody;
+
+        if(viewControl.firstPerson) {
+            aimingBody = firstPersonAimingBody;
+        }
+
+        else {
+            aimingBody = thirdPersonAimingBody;
+        }
+        
         //Aim
         Ray ray = new Ray(aimingBody.position, aimingBody.forward);
         RaycastHit hit;
@@ -48,7 +61,10 @@ public class ShipWeaponControl : MonoBehaviour {
         rightWeapon.Aim(target - rightWeapon.transform.position);
         leftWeapon.Aim(target - leftWeapon.transform.position);
 
-        if(cam.gameObject != aimingBody.gameObject) {
+        //Move and Hide Crosshair
+        crosshair.gameObject.SetActive(!viewControl.lookingBack);
+
+        if (cam.gameObject != aimingBody.gameObject) {
             crosshair.position = Vector3.Lerp(crosshair.position, cam.WorldToScreenPoint(target), Time.deltaTime * crosshairAcceleration);
         }
     }

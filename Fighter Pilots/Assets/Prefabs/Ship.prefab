@@ -678,6 +678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b1d5cb0e4b95441af80411381f32dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstPerson: 0
+  lookingBack: 0
   player: {fileID: 114409344528061878}
   firstPersonHolder: {fileID: 4577280317129874}
   thirdPersonHolder: {fileID: 4286207304070782}
@@ -714,7 +716,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 114409344528061878}
   cam: {fileID: 20269071150663420}
-  aimingBody: {fileID: 4609928781506760}
+  viewControl: {fileID: 114698144648467026}
+  firstPersonAimingBody: {fileID: 4609928781506760}
+  thirdPersonAimingBody: {fileID: 4766203613802720}
   crosshair: {fileID: 224504863676038582}
   rightWeapon: {fileID: 114781389734384870}
   leftWeapon: {fileID: 114351899589933414}

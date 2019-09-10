@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ViewControl : MonoBehaviour {
+    //State Variables
+    [HideInInspector] public bool firstPerson;
+    [HideInInspector] public bool lookingBack;
+
     //Rotation Values
     [HideInInspector] private float hRot;
     [HideInInspector] private float vRot;
@@ -23,19 +27,22 @@ public class ViewControl : MonoBehaviour {
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
 
+        firstPerson = true;
+        lookingBack = false;
+
         hRot = 0f;
         vRot = 0f;
     }
 
     void FixedUpdate() {
-        bool lookingBack = Input.GetButton("Look Back " + player.index);
         bool togglePerspective = Input.GetButtonDown("Toggle Perspective " + player.index);
+        lookingBack = Input.GetButton("Look Back " + player.index);
 
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
 
         //First Person View Pivot
-        if (transform.parent == firstPersonHolder) {
+        if(firstPerson) {
             float targetHRot = Input.GetAxis("Horizontal Look " + player.index) * maxHorizontalRotation;
             float targetVRot = Input.GetAxis("Vertical Look " + player.index) * maxVerticalRotation;
 
@@ -46,19 +53,21 @@ public class ViewControl : MonoBehaviour {
         }
 
         //Third Person Rear View
-        else if(transform.parent == thirdPersonHolder || transform.parent == thirdPersonRearViewHolder) {
+        else if(!firstPerson) {
             transform.SetParent(!lookingBack ? thirdPersonHolder : thirdPersonRearViewHolder);
         }
 
         //Toggle Perspective
         if(togglePerspective) {
-            if(transform.parent == firstPersonHolder) {
+            if(firstPerson) {
                 transform.SetParent(thirdPersonHolder);
             }
 
-            else if(transform.parent == thirdPersonHolder || transform.parent == thirdPersonRearViewHolder) {
+            else {
                 transform.SetParent(firstPersonHolder);
             }
+
+            firstPerson = !firstPerson;
         }
 	}
 }
