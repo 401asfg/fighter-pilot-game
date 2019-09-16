@@ -798,6 +798,7 @@ MonoBehaviour:
       y: 0
       width: 0.5
       height: 0.5
+  playerAmount: 1
 --- !u!4 &1142837182
 Transform:
   m_ObjectHideFlags: 0

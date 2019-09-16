@@ -5,11 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     [SerializeField] public PlayerSpawnPoint[] spawnPoints;
     [SerializeField] private SplitScreenView[] splitScreenViews;
+    [SerializeField] private int playerAmount;
 
     private GameObject[] players;
 
     void Start() {
-        players = new GameObject[1];
+        players = new GameObject[playerAmount];
 
         for(int i = 0; i < players.Length; i++) {
             players[i] = spawnPoints[i].Spawn(i);
