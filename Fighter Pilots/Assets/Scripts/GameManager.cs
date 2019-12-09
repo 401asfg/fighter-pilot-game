@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     private GameObject[] players;
 
     void Start() {
+        //Spawn Players
         players = new GameObject[playerAmount];
 
         for(int i = 0; i < players.Length; i++) {
@@ -20,7 +21,8 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
-        for(int i = 0; i < players.Length; i++) {
+        //Respawn Dead Players
+        for (int i = 0; i < players.Length; i++) {
             if(players[i] == null) {
                 players[i] = spawnPoints[0].Spawn(i);
                 UpdateSplitscreen();
